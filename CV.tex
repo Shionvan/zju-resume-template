@@ -117,25 +117,25 @@
 
 % --- 第一个项目 ---
 % 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill  \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
+\textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill  \titlebreak
+项目描述：基于 Dify 后端架构（Flask + Celery + DDD），设计并部署了企业级 RAG 智能问答系统，支持文档解析、向量检索与多轮对话。
 % 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item \textbf{系统架构分析}：深入研读 \textbf{Dify} 的后端架构设计，理解其基于 \textbf{Flask + Celery} 的API服务与异步任务分离架构，以及\textbf{领域驱动设计（DDD）}的分层理念。
+    \item \textbf{核心流程实践}：基于 Dify 的 \textbf{Agent + RAG} 模块，设计并实现了一个企业内部知识库问答系统，支持多轮对话与文档溯源。
+    \item \textbf{工程化部署}：使用 \textbf{Docker Compose} 完成 PostgreSQL、Redis、Weaviate 等中间件的一键部署，让系统能落地到生产环境。
 \end{itemize}
 
 % 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
 % --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+\textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill  \titlebreak
+%项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item \textbf{掌握生产级 Agent 开发框架}：深入研习字节跳动 Eino 的组件化与编排理念。利用其\textbf{Agent Development Kit}，自主设计并构建了一个支持多步推理的智能问答 Agent。
+    \item \textbf{构建高性能 RAG 服务}：参考 Eino 的实战案例，整合 \textbf{Hertz（高性能Go微服务框架）} 与\textbf{ Milvus（向量数据库）}，构建了一个 \textbf{RAG} 知识库问答服务。
+    \item \textbf{深化后端工程能力}：通过该项目的实践，不仅熟练掌握了 Eino 框架，更将 Go 语言在\textbf{高并发}和\textbf{系统设计}方面的优势融入AI应用开发，为团队提供了可复用的后端 Agent 服务模板。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
