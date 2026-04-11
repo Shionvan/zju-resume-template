@@ -119,9 +119,8 @@
 % --- 第一个项目 ---
 \textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 针对企业内部知识库查询效率低、文档分散的问题，需要构建一个支持文档解析、\textbf{向量检索}与多轮对话的智能问答系统。我基于 Dify 的 \textbf{Flask+Celery} 分离式架构，设计并部署了 \textbf{RAG} 系统，深入研读\textbf{异步任务队列}处理机制，实现了文档异步解析与向量化。最终系统支撑数千份内部文档的实时问答，平均检索响应在 1.5 秒以内，并为后续 \textbf{Web Agent} 的\textbf{异步工具调用}提供了设计参考。
-    \item 为让 \textbf{Agent} 能根据用户问题动态选择检索策略，我利用 Dify 的 \textbf{Agent} 与 \textbf{RAG} 模块，自主设计了企业知识库问答系统，实现了\textbf{多轮对话记忆}与\textbf{文档溯源}。系统成功交付生产环境，能够准确回答复杂问题并返回引用来源。
-    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地，确保了生产环境的稳定性和可扩展性。
+    \item 针对企业内部知识库查询效率低的问题，我基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署了 \textbf{RAG} 系统，深入研读\textbf{异步任务队列}处理机制，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 \textbf{Web Agent} 的\textbf{异步工具调用}提供了设计参考。
+    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了稳定性和可扩展性。
 \end{itemize}
 
 \projectsep
@@ -129,9 +128,8 @@
 % --- 第二个项目 ---
 \textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill 2025.11 -- 2026.2 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 面临构建具备\textbf{多步推理}与\textbf{工具调用}能力的生产级 \textbf{Agent} 的挑战，需要整合高性能 \textbf{RAG} 服务。我基于字节跳动 \textbf{Eino} 框架与 ADK，结合 \textbf{Hertz} + \textbf{Milvus} 打造了企业级 \textbf{RAG Agent} 系统。利用 \textbf{Agent Development Kit} 设计了支持 \textbf{ReAct} 风格\textbf{多步推理}的 Agent，能根据用户意图拆解任务、调用检索工具并综合答案，完全契合 \textbf{Web Agent} 核心工作流。
-    \item 为提升检索效率，我将 \textbf{Hertz} 高性能 Go 微服务框架与 \textbf{Milvus} 向量数据库整合，构建了大规模\textbf{向量检索}的 RAG 服务，并将检索逻辑封装为 Agent 的\textbf{可调用工具}，实现了“思考-检索-生成”的闭环。系统上线后能同时处理数十路问答请求。
-    \item 借助 Go 语言的并发优势，我对 Agent \textbf{编排层}进行了\textbf{高并发}优化，最终沉淀出一套可复用的后端 \textbf{Agent} 服务模板，为团队后续的浏览器自动化 Agent、多 Agent 协作等项目提供了基础框架。
+    \item 为构建具备\textbf{多步推理}与\textbf{工具调用}能力的生产级 \textbf{Agent}，我基于字节跳动 \textbf{Eino} 框架与 ADK，整合 \textbf{Hertz} + \textbf{Milvus} 打造了企业级 \textbf{RAG Agent} 系统。利用 \textbf{Agent Development Kit} 设计 \textbf{ReAct} 风格多步推理 Agent，将检索逻辑封装为\textbf{可调用工具}，实现了“思考-检索-生成”闭环。系统上线后能同时处理数十路问答请求。
+    \item 借助 Go 语言的并发优势，我对 Agent \textbf{编排层}进行了\textbf{高并发}优化，最终沉淀出可复用的后端 \textbf{Agent} 服务模板，为团队后续的浏览器自动化 Agent、多 Agent 协作等项目提供了基础框架。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
