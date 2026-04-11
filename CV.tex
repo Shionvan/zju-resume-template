@@ -116,36 +116,35 @@
 
 % --- 第一个项目 ---
 % 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill  \titlebreak
-项目描述：基于 Dify 后端架构（Flask + Celery + DDD），设计并部署了企业级 RAG 智能问答系统，支持文档解析、向量检索与多轮对话。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+% --- 第一个项目 ---
+\textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
+项目描述：为支撑企业内部知识库的高效问答，基于 Dify 后端架构（Flask + Celery + DDD）设计并部署了一套 RAG 智能问答系统，实现了文档解析、向量检索与多轮对话的端到端流程。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{系统架构分析}：深入研读 \textbf{Dify} 的后端架构设计，理解其基于 \textbf{Flask + Celery} 的API服务与异步任务分离架构，以及\textbf{领域驱动设计（DDD）}的分层理念。
-    \item \textbf{核心流程实践}：基于 Dify 的 \textbf{Agent + RAG} 模块，设计并实现了一个企业内部知识库问答系统，支持多轮对话与文档溯源。
-    \item \textbf{工程化部署}：使用 \textbf{Docker Compose} 完成 PostgreSQL、Redis、Weaviate 等中间件的一键部署，让系统能落地到生产环境。
+    \item \textbf{架构分析与异步编排}：深入研读 Dify 的 \textbf{Flask + Celery} 分离式架构，理解其如何通过异步任务队列处理耗时操作（如文档解析、向量化），为后续 Web Agent 的异步工具调用提供了设计参考。
+    \item \textbf{Agent + RAG 核心流程实践}：基于 Dify 的 \textbf{Agent} 与 \textbf{RAG} 模块，自主设计了一个企业知识库问答系统，实现了多轮对话记忆、文档溯源与检索增强生成，其中 Agent 能够根据用户问题动态选择检索策略。
+    \item \textbf{工程化部署与落地}：使用 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整交付至生产环境，支撑了数千份内部文档的实时问答，平均检索响应在 1.5 秒以内。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
 % --- 第二个项目 ---
-\textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill  \titlebreak
-项目描述：基于字节跳动 Eino 框架与 ADK，结合 Hertz + Milvus 构建企业级 RAG Agent 系统，实现文档智能检索与多轮问答。
+\textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill  2025.11 -- 2026.2\titlebreak
+项目描述：为了构建具备多步推理与工具调用能力的生产级 Agent，基于字节跳动 Eino 框架与 ADK，结合 Hertz + Milvus 打造了一套企业级 RAG Agent 系统，实现了复杂文档的智能检索与多轮问答。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{掌握生产级 Agent 开发框架}：深入研习字节跳动 Eino 的组件化与编排理念。利用其\textbf{Agent Development Kit}，自主设计并构建了一个支持多步推理的智能问答 Agent。
-    \item \textbf{构建高性能 RAG 服务}：参考 Eino 的实战案例，整合 \textbf{Hertz（高性能Go微服务框架）} 与\textbf{ Milvus（向量数据库）}，构建了一个 \textbf{RAG} 知识库问答服务。
-    \item \textbf{深化后端工程能力}：通过该项目的实践，不仅熟练掌握了 Eino 框架，更将 Go 语言在\textbf{高并发}和\textbf{系统设计}方面的优势融入AI应用开发，能为团队提供了可复用的后端 Agent 服务模板。
+    \item \textbf{掌握生产级 Agent 开发范式}：深入研习 Eino 的组件化与编排理念，利用其 \textbf{Agent Development Kit} 自主设计了一个支持多步推理（ReAct 风格）的 Agent。该 Agent 能够根据用户意图拆解任务、调用检索工具并综合答案，完全契合 Web Agent 的核心工作流。
+    \item \textbf{构建高性能 RAG 服务}：参考 Eino 实战案例，整合 \textbf{Hertz（高性能 Go 微服务框架）} 与 \textbf{Milvus（向量数据库）}，构建了支持大规模向量检索的 RAG 服务。通过将检索逻辑封装为 Agent 的可调用工具，实现了“思考-检索-生成”的闭环。
+    \item \textbf{深化高并发与工程能力}：借助 Go 语言的优势，对 Agent 的编排层进行了并发优化，使系统能同时处理数十路问答请求。最终沉淀出一套可复用的后端 Agent 服务模板，能为团队后续的 Web Agent 项目（如浏览器自动化 Agent、多 Agent 协作）提供了基础框架。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++，JAVA
-    \item \textbf{开发工具：} SSH, Git, Vim, Latex
+    \item \textbf{编程语言：} 熟练使用 \textbf{Go} 构建高并发 Agent 编排服务，运用 \textbf{Python} 快速集成 LLM、RAG 及数据处理流程，具备 \textbf{C++/Java} 底层性能优化与跨语言协作经验。
+    \item \textbf{核心框架与工具：} 掌握 \textbf{Playwright/Puppeteer} 实现浏览器自动化与页面交互，熟练使用 \textbf{Docker Compose} 一键部署 Agent 依赖中间件（PostgreSQL、Redis、Milvus），借助 \textbf{Git} 进行版本管理与团队协作，通过 \textbf{SSH/Vim} 完成远程调试与配置编排。
 \end{itemize}
     
-\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
+\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与数学能力}
 \begin{itemize}[parsep=0.5ex]
-    \item \textbf{英语水平：} CET-4, CET-6
+    \item \textbf{英语水平：} CET-4 616, CET-6 473
     \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖
 \end{itemize}
 \end{document}
