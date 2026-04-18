@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 
-
 \setlength{\parindent}{0pt}
 \usepackage{xltxtra}
 \usepackage{hyperref}
@@ -18,29 +17,22 @@
 \usepackage{enumitem}
 \CJKsetecglue{} %% 取消中文与数字之间的间隙
 
-
-%% 主文档字体设置
 \setmainfont[
     Path = fonts/Main/,
     Extension = .otf,
-    BoldFont = texgyretermes-bold.otf, % 加粗字体
-]{texgyretermes-regular.otf} % 正文字体
+    BoldFont = texgyretermes-bold.otf,
+]{texgyretermes-regular.otf}
 
-% 中文字体设置
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
-    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
-]{NotoSansSC-Regular.otf} % 正文字体
-
+    BoldFont = NotoSansSC-Bold.ttf,
+]{NotoSansSC-Regular.otf}
 
 \usepackage{relsize}
 \usepackage{xspace}
+\usepackage{fontawesome}
 
-% 使用 fontawesome（部分图标）
-\usepackage{fontawesome} 
-
-% A4纸，上下左右边距
 \usepackage[
     a4paper,
     left=1.2cm,
@@ -50,97 +42,86 @@
     nohead
 ]{geometry}
 
-\renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
-
+\renewcommand{\baselinestretch}{1.5}
 \usepackage{titlesec}
-\usepackage{enumitem}
-\setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
-\setlist[itemize]{topsep=0.25em, leftmargin=*}
-\setlist[enumerate]{topsep=0.25em, leftmargin=*}
+\setlist{noitemsep}
+\setlist[itemize]{topsep=0.25em, leftmargin=*, label=$\bullet$, nosep}
+\setlist[enumerate]{topsep=0.25em, leftmargin=*, nosep}
 
-% --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.9em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
-% --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
-\newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
+\setlength{\intraProjectTitleSep}{0.4em}
+\newcommand{\titlebreak}{\$\intraProjectTitleSep]}
 
-% --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.2em}
 
-% =======================================================================
-
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
+\titleformat{\section}
+{\large\bfseries\raggedright}
+{}{0em}
+{}%
+[{\color{CVBlue}\titlerule}]%
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
 
-
+\newcommand{\techitem}[1]{\item \textbf{#1}} % 技术栈分项命令
 
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片
-%\begin{tikzpicture}[remember picture, overlay] 
-%    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
+% 头像和Logo定位（可选）
+% \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
 % \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-% \begin{tikzpicture}[remember picture, overlay] 
-%    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-%  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{王鑫}} 
+% \begin{tikzpicture}[remember picture, overlay]
+%     \node[anchor=north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
+% \end{tikzpicture}%
 
-\centerline{\normalsize{\faPhone\ 18512385345 \quad \faEnvelopeO\ \href{mailto:22515026@zju.edu.cn}{22515026@zju.edu.cn}}} 
-\centerline{\normalsize{\bfseries{目标岗位：Web Agent开发工程师}}} 
+\centerline{\LARGE\bfseries{王鑫}}
+\centerline{\normalsize{\faPhone\ 18512385345 \quad \faEnvelopeO\ \href{mailto:22515026@zju.edu.cn}{22515026@zju.edu.cn}}}
+\centerline{\normalsize{\textcolor{CVBlue}{\textbf{目标岗位：Web Agent开发工程师}}}} 
 
-    
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}   
-\textbf{研究生：浙江大学} \hfill 2025.9 -- 至今 \\[0.5em]
-电子信息技术与仪器\quad  
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}
+\textbf{研究生：浙江大学} \hfill 2025.9 -- 至今 \\
+电子信息技术与仪器\\
 \begin{itemize}[nosep]
-    \item 相关课程：《现代信号处理》、《人工神经网络与模式识别》、《模式识别与机器学习》
+    \techitem{相关课程} 《现代信号处理》、《人工神经网络与模式识别》、《模式识别与机器学习》
+    \techitem{相关技能} 深度学习、信号处理、算法设计
 \end{itemize}
 
-\textbf{本科：浙江大学} \hfill 2021.9 -- 2025.6 \\[0.5em]
-生物医学工程\quad  
+\textbf{本科：浙江大学} \hfill 2021.9 -- 2025.6 \\
+生物医学工程\\
 \begin{itemize}[nosep]
-    \item 相关课程：《C语言程序设计》、《高级程序设计》、《网络技术与应用》
+    \techitem{相关课程} 《C语言程序设计》、《高级程序设计》、《网络技术与应用》
+    \techitem{相关技能} 编程基础、网络协议、系统开发
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
-% --- 第一个项目 ---
 \textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 针对企业内部知识库查询效率低的问题，我基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署了 \textbf{RAG} 系统，深入研读\textbf{异步任务队列}处理机制，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 \textbf{Web Agent} 的\textbf{异步工具调用}提供了设计参考。
-    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了稳定性和可扩展性。
+    \item 针对企业知识库查询效率低的问题，设计并部署了 \textbf{Flask+Celery} 分离式架构的 RAG 系统，实现 \textbf{Agent+RAG} 协同工作流，支持 \textbf{多轮对话记忆} 和 \textbf{文档溯源}，优化动态检索策略，系统支持千份文档实时问答，平均响应 \textcolor{CVBlue}{\textbf{1.5秒}}，为后续 Web Agent 的 \textbf{异步工具调用} 提供设计范式。
+    \item 使用 \textbf{Docker Compose} 编排 PostgreSQL、Redis、Weaviate 等中间件，实现一键部署和水平扩展。
 \end{itemize}
-
 \projectsep
 
-% --- 第二个项目 ---
 \textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill 2025.11 -- 2026.2 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 为构建具备\textbf{多步推理}与\textbf{工具调用}能力的生产级 \textbf{Agent}，我基于字节跳动 \textbf{Eino} 框架与 ADK，整合 \textbf{Hertz} + \textbf{Milvus} 打造了企业级 \textbf{RAG Agent} 系统。利用 \textbf{Agent Development Kit} 设计 \textbf{ReAct} 风格多步推理 Agent，将检索逻辑封装为\textbf{可调用工具}，实现了“思考-检索-生成”闭环。系统上线后能同时处理数十路问答请求。
-    \item 借助 Go 语言的并发优势，我对 Agent \textbf{编排层}进行了\textbf{高并发}优化，最终沉淀出可复用的后端 \textbf{Agent} 服务模板，为团队后续的浏览器自动化 Agent、多 Agent 协作等项目提供了基础框架。
+    \item 基于 Eino 框架与 ADK 开发生产级 RAG Agent，集成 \textbf{Hertz} 高性能Web服务和 \textbf{Milvus} 向量数据库，设计 \textbf{ReAct} 风格的多步推理流程，将检索封装为 \textbf{可调用工具}，实现“思考-检索-生成”闭环，系统可同时处理 \textcolor{CVBlue}{\textbf{数十路并发请求}}。
+    \item 利用 Go 语言的 \textbf{goroutine} 优化 Agent 编排层并发性能，沉淀出可复用的后端 Agent 服务模板，支持浏览器自动化、多Agent协作等场景。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+\textbf{编程语言：} \techitem{Go}（高并发服务）\quad \techitem{Python}（LLM/RAG集成）\quad \techitem{C++/Java}（底层优化）\\
+\textbf{核心框架：} \techitem{Playwright/Puppeteer}（浏览器自动化）\quad \techitem{Dify、Eino}（Agent开发）\\
+\textbf{工具与中间件：} \techitem{Docker Compose}（环境部署）\quad \techitem{PostgreSQL/Redis/Milvus}（数据存储）\\
+\textbf{协作工具：} \techitem{Git}（版本控制）\quad \techitem{SSH/Vim}（远程运维）
+
+\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与竞赛}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} 熟练使用 \textbf{Go} 构建高并发 Agent 编排服务，能运用 \textbf{Python} 快速集成 LLM、RAG 及数据处理流程，具备 \textbf{C++/Java} 底层性能优化与跨语言协作经验。
-    \item \textbf{核心框架与工具：} 掌握 \textbf{Playwright/Puppeteer} 实现浏览器自动化与页面交互，熟练使用 \textbf{Docker Compose} 一键部署 Agent 依赖中间件（PostgreSQL、Redis、Milvus），能借助 \textbf{Git} 进行版本管理与团队协作，善于使用 \textbf{SSH/Vim} 完成远程调试与配置编排。
+    \techitem{英语水平} CET-4 \textcolor{CVBlue}{616}\quad CET-6 \textcolor{CVBlue}{473}
+    \techitem{竞赛奖项} \textbf{全国大学生数学竞赛省一等奖}（202X）
 \end{itemize}
-    
-\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与数学能力}
-\begin{itemize}[parsep=0.5ex]
-    \item \textbf{英语水平：} CET-4 616, CET-6 473
-    \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖
-\end{itemize}
+
 \end{document}
