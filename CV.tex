@@ -21,23 +21,20 @@
 \setmainfont[
     Path = fonts/Main/,
     Extension = .otf,
-    BoldFont = texgyretermes-bold.otf, % 加粗字体
-]{texgyretermes-regular.otf} % 正文字体
+    BoldFont = texgyretermes-bold.otf,
+]{texgyretermes-regular.otf}
 
 % 中文字体设置
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
-    BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
-]{NotoSansSC-Regular.otf} % 正文字体
+    BoldFont = NotoSansSC-Bold.ttf,
+]{NotoSansSC-Regular.otf}
 
 \usepackage{relsize}
 \usepackage{xspace}
-
-% 使用 fontawesome（部分图标）
 \usepackage{fontawesome} 
 
-% A4纸，上下左右边距
 \usepackage[
     a4paper,
     left=1.2cm,
@@ -47,54 +44,39 @@
     nohead
 ]{geometry}
 
-\renewcommand{\baselinestretch}{1.5} % 行间距设为1.5
+\renewcommand{\baselinestretch}{1.5}
 
 \usepackage{titlesec}
 \usepackage{enumitem}
-\setlist{noitemsep} % 取消列表项间的额外间距
-%\setlist{nosep} % 取消所有垂直间距
+\setlist{noitemsep}
 \setlist[itemize]{topsep=0.25em, leftmargin=*}
 \setlist[enumerate]{topsep=0.25em, leftmargin=*}
 
-% --- 用于控制【不同项目之间】的垂直距离 ---
 \newlength{\interProjectSpacing}
-\setlength{\interProjectSpacing}{0.9em} % <--- 在此调整项目之间的距离
+\setlength{\interProjectSpacing}{0.9em}
 \newcommand{\projectsep}{\vspace{\interProjectSpacing}}
 
-% --- 用于控制【项目标题】与下方【项目描述】的距离 ---
 \newlength{\intraProjectTitleSep}
-\setlength{\intraProjectTitleSep}{0.4em} % <--- 在此调整标题和描述的距离
+\setlength{\intraProjectTitleSep}{0.4em}
 \newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
-% --- 用于控制【项目描述】与下方【要点列表】的距离 ---
 \newlength{\intraProjectListTopSep}
-\setlength{\intraProjectListTopSep}{0.2em} % <--- 在此调整描述和列表的距离
+\setlength{\intraProjectListTopSep}{0.2em}
 
-% =======================================================================
-
-\titleformat{\section}         % 定制 \section 命令 
-{\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
-{}                           % 可用于在标题前插入代码
-[{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
+\titleformat{\section}
+{\large\bfseries\raggedright}
+{}{0em}
+{}
+[{\color{CVBlue}\titlerule}]
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
 
 \begin{document}
 \pagenumbering{gobble}
 
-%%%% 利用tikz来定位照片（注释保留）
-%\begin{tikzpicture}[remember picture, overlay] 
-%    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
-% \end{tikzpicture}%
-%%%% 利用tikz来定位学校Logo，这里只在第一页显示
-% \begin{tikzpicture}[remember picture, overlay] 
-%    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-%  \end{tikzpicture}%
-
 \centerline{\LARGE\bfseries{王鑫}} 
 
 \centerline{\normalsize{\faPhone\ 18512385345 \quad \faEnvelopeO\ \href{mailto:22515026@zju.edu.cn}{22515026@zju.edu.cn}}} 
-\centerline{\normalsize{\bfseries{目标岗位：AI Agent开发工程师（RAG + 多Agent协作方向）}}} 
+\centerline{\normalsize{\bfseries{目标岗位：AI Agent 开发工程师}}} 
 
     
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}   
@@ -111,54 +93,36 @@
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
-% --- 第一个项目（新增：多Agent协作系统）---
-\textbf{基于 Eino 的多 Agent 协作系统：任务分解与专家路由} \hfill 2026.02 -- 至今 \titlebreak
-\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 设计并实现了一个多 Agent 协作系统，包含一个 **Router Agent** 和多个专家 Agent（数据爬取、文本解析、摘要生成）。Router Agent 将用户复杂请求分解为子任务，动态路由至对应专家 Agent 并行执行。
-    \item 实现 **Agent 间消息传递** 与 **结果聚合** 机制，支持任务依赖管理（如爬取完成后才执行解析）。使用 Go 编写轻量级编排引擎，记录完整调用链以支持调试与性能分析。
-    \item 系统在“财报自动分析与报告生成”场景中试用，将多步骤任务的处理时间从串行执行的 35 秒降低至并行执行的 18 秒。
-\end{itemize}
 
-\projectsep
-
-% --- 第二个项目（新增：浏览器自动化 Agent 工具）---
+% --- 项目1：浏览器自动化 Agent 工具（原第2个项目）---
 \textbf{浏览器自动化 Agent：基于 Playwright 的工具集扩展} \hfill 2026.01 -- 2026.02 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 为现有 Eino Agent 框架扩展了 **Playwright 工具集**，将网页截图、表单填写、滚动加载、元素点击等操作封装为 LLM 可调用的工具，支持自然语言触发浏览器动作。
-    \item 处理动态页面等待（智能等待 DOM 元素）、弹窗关闭、Cookie 注入等常见问题，提供同步与异步两种调用模式，并加入操作失败时的自动重试机制（最多 3 次）。
-    \item 该工具集已在内部知识库自动化录入场景中落地，将原本需要人工操作 15 分钟的任务缩短至 2 分钟内自动完成。
+    \item 为现有 \textbf{Agent} 框架扩展了 \textbf{Playwright 工具集}，将网页截图、表单填写、滚动加载等操作封装为 \textbf{LLM 可调用的工具}，支持自然语言触发浏览器动作。
+    \item 处理动态页面等待、弹窗关闭、Cookie 注入等常见问题，提供同步与异步调用模式，并加入操作失败时的\textbf{自动重试机制}。
+    \item 该工具集在内部知识库自动化录入场景中落地，将人工操作 15 分钟的任务缩短至 2 分钟内自动完成，体现了 \textbf{浏览器自动化} 与 \textbf{Agent 工具调用} 的实践能力。
 \end{itemize}
 
 \projectsep
 
-% --- 第三个项目（原第一个 Dify 项目，保留）---
+% --- 项目2：Dify RAG 系统（原第3个项目）---
 \textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 针对企业内部知识库查询效率低的问题，基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署 \textbf{RAG} 系统，深入研读\textbf{异步任务队列}处理机制，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 Agent 的异步工具调用提供了设计参考。
-    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了稳定性和可扩展性。
-\end{itemize}
-
-\projectsep
-
-% --- 第四个项目（原第二个 Eino 项目，增加评测与优化描述）---
-\textbf{基于字节跳动 Eino 框架的企业级 RAG Agent 系统设计与实现} \hfill 2025.11 -- 2026.2 \titlebreak
-\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 为构建具备\textbf{多步推理}与\textbf{工具调用}能力的生产级 \textbf{Agent}，基于字节跳动 \textbf{Eino} 框架与 ADK，整合 \textbf{Hertz} + \textbf{Milvus} 打造了企业级 \textbf{RAG Agent} 系统。利用 \textbf{Agent Development Kit} 设计 \textbf{ReAct} 风格多步推理 Agent，将检索逻辑封装为\textbf{可调用工具}，实现了“思考-检索-生成”闭环。系统上线后能同时处理数十路问答请求。
-    \item 借助 Go 语言的并发优势，对 Agent \textbf{编排层}进行了\textbf{高并发}优化，沉淀出可复用的后端 \textbf{Agent} 服务模板。
-    \item \textbf{Agent 评测与优化：} 构建了 200+ 典型问答对测试集，以**任务成功率**和**平均推理步数**为核心指标进行迭代。通过优化 Prompt 结构（引入 Few-shot 示例）和工具调用错误处理（自动重试+备选工具），将任务成功率从 72\% 提升至 89\%，平均推理步数从 4.2 步降至 3.1 步。
+    \item 基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署 \textbf{RAG} 系统，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 \textbf{Agent 异步工具调用} 提供了设计参考。
+    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了\textbf{稳定性}和\textbf{可扩展性}。
+    \item 实践中掌握了\textbf{异步任务队列}、\textbf{向量检索}等后端核心能力，为构建生产级 Agent 服务打下基础。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} 熟练使用 \textbf{Go} 构建高并发 Agent 编排服务，能运用 \textbf{Python} 快速集成 LLM、RAG 及数据处理流程，具备 \textbf{C++/Java} 底层性能优化与跨语言协作经验。
-    \item \textbf{浏览器自动化：} 精通 \textbf{Playwright}（页面交互、截图、网络拦截、上下文管理）和 \textbf{Puppeteer}，已为 Agent 框架集成该工具集，掌握动态等待策略、XPath/CSS 选择器、Cookie/Session 管理。
-    \item \textbf{Agent 核心能力：} 熟练使用 \textbf{Eino} / \textbf{LangChain} 开发 ReAct、Plan-and-Execute 等多范式 Agent，具备多 Agent 协作设计经验；掌握 Agent 评测方法（任务成功率、推理步数等指标）与 Prompt 优化技巧。
-    \item \textbf{核心框架与工具：} 熟练使用 \textbf{Docker Compose} 一键部署 Agent 依赖中间件（PostgreSQL、Redis、Milvus、ClickHouse），能借助 \textbf{Git} 进行版本管理与团队协作，善于使用 \textbf{SSH/Vim} 完成远程调试与配置编排。
+    \item \textbf{编程语言：} 熟练使用 \textbf{Go} 构建高并发 Agent 编排服务，能运用 \textbf{Python} 快速集成 LLM、RAG 及数据处理流程，具备 C++/Java 底层优化与跨语言协作经验。
+    \item \textbf{浏览器自动化：} 精通 \textbf{Playwright}（页面交互、截图、网络拦截），已为 Agent 框架集成该工具集，掌握动态等待、XPath/CSS 选择器、Cookie/Session 管理。
+    \item \textbf{Agent 核心能力：} 熟练使用 \textbf{Eino} / \textbf{LangChain} 开发 ReAct 风格 Agent，具备工具封装、异步调用、错误重试等实践；掌握 RAG、多轮对话记忆等关键技术。
+    \item \textbf{部署与工具：} 熟练使用 \textbf{Docker Compose} 一键部署 Agent 依赖中间件（PostgreSQL、Redis、Milvus），善于使用 Git、SSH/Vim 进行远程调试与配置编排。
 \end{itemize}
     
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与数学能力}
 \begin{itemize}[parsep=0.5ex]
-    \item \textbf{英语水平：} CET-4 616, CET-6 473
-    \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖
+    \item \textbf{英语水平：} CET-4 616, CET-6 473（可流畅阅读 Playwright/CDP 及 LLM 相关英文文档）
+    \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖（逻辑推理与规划能力，对 Agent 任务分解设计有直接帮助）
 \end{itemize}
 \end{document}
