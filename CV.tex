@@ -1,7 +1,6 @@
 \documentclass[11pt]{article}
 
 \setlength{\parindent}{0pt}
-\usepackage{xltxtra}
 \usepackage{hyperref}
 \hypersetup{hidelinks}
 \usepackage{url}
@@ -54,7 +53,7 @@
 
 \newlength{\intraProjectTitleSep}
 \setlength{\intraProjectTitleSep}{0.4em}
-\newcommand{\titlebreak}{\$\intraProjectTitleSep]}
+\newcommand{\titlebreak}{\\[\intraProjectTitleSep]}
 
 \newlength{\intraProjectListTopSep}
 \setlength{\intraProjectListTopSep}{0.2em}
@@ -108,7 +107,7 @@
 
 \textbf{基于字节跳动Eino框架的企业级 RAG Agent 系统设计与实现} \hfill 2025.11 -- 2026.2 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 基于 Eino 框架与 ADK 开发生产级 RAG Agent，集成 \textbf{Hertz} 高性能Web服务和 \textbf{Milvus} 向量数据库，设计 \textbf{ReAct} 风格的多步推理流程，将检索封装为 \textbf{可调用工具}，实现“思考-检索-生成”闭环，系统可同时处理 \textcolor{CVBlue}{\textbf{数十路并发请求}}。
+    \item 基于 Eino 框架与 ADK 开发生产级 RAG Agent，集成 \textbf{Hertz} 高性能Web服务和 \textbf{Milvus} 向量数据库，设计 \textbf{ReAct} 风格的多步推理流程，将检索封装为 \textbf{可调用工具}，实现"思考-检索-生成"闭环，系统可同时处理 \textcolor{CVBlue}{\textbf{数十路并发请求}}。
     \item 利用 Go 语言的 \textbf{goroutine} 优化 Agent 编排层并发性能，沉淀出可复用的后端 Agent 服务模板，支持浏览器自动化、多Agent协作等场景。
 \end{itemize}
 
