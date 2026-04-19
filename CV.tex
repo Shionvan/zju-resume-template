@@ -15,7 +15,7 @@
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \usepackage{enumitem}
-\CJKsetecglue{}
+\CJKsetecglue{} %% 取消中文与数字之间的间隙
 
 %% 主文档字体设置
 \setmainfont[
@@ -24,6 +24,7 @@
     BoldFont = texgyretermes-bold.otf,
 ]{texgyretermes-regular.otf}
 
+% 中文字体设置
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
@@ -32,7 +33,7 @@
 
 \usepackage{relsize}
 \usepackage{xspace}
-\usepackage{fontawesome}
+\usepackage{fontawesome} 
 
 \usepackage[
     a4paper,
@@ -73,29 +74,25 @@
 \pagenumbering{gobble}
 
 \centerline{\LARGE\bfseries{王鑫}} 
+
 \centerline{\normalsize{\faPhone\ 18512385345 \quad \faEnvelopeO\ \href{mailto:22515026@zju.edu.cn}{22515026@zju.edu.cn}}} 
 \centerline{\normalsize{\bfseries{目标岗位：AI Agent 开发工程师}}} 
 
+    
 \section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}   
 \textbf{研究生：浙江大学} \hfill 2025.9 -- 至今 \\[0.5em]
 电子信息技术与仪器\quad  
-\begin{itemize}[nosep]
-    \item 相关课程：《现代信号处理》、《人工神经网络与模式识别》、《模式识别与机器学习》
-\end{itemize}
 
 \textbf{本科：浙江大学} \hfill 2021.9 -- 2025.6 \\[0.5em]
 生物医学工程\quad  
-\begin{itemize}[nosep]
-    \item 相关课程：《C语言程序设计》、《高级程序设计》、《网络技术与应用》
-\end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
 
-% --- 项目1：浏览器自动化 Agent ---
+% --- 项目1：浏览器自动化 Agent 工具 ---
 \textbf{浏览器自动化 Agent：基于 Playwright 的工具集扩展} \hfill 2026.01 -- 2026.02 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 为现有 \textbf{Agent} 框架扩展 \textbf{Playwright 工具集}，将网页截图、表单填写等操作封装为 \textbf{LLM 可调用的工具}，支持自然语言触发浏览器动作。
-    \item 处理动态页面等待、弹窗关闭、Cookie 注入，提供同步/异步调用及操作失败时的 \textbf{自动重试机制}。该工具集将内部知识库录入从 15 分钟缩短至 2 分钟。
+    \item 为现有 \textbf{Agent} 框架扩展了 \textbf{Playwright 工具集}，将网页截图、表单填写、滚动加载等操作封装为 \textbf{LLM 可调用的工具}，支持自然语言触发浏览器动作。
+    \item 处理动态页面等待、弹窗关闭、Cookie 注入等常见问题，提供同步与异步调用模式，并加入操作失败时的\textbf{自动重试机制}。
 \end{itemize}
 
 \projectsep
@@ -103,19 +100,21 @@
 % --- 项目2：Dify RAG 系统 ---
 \textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 基于 \textbf{Flask+Celery} 分离式架构部署 \textbf{RAG} 系统，利用 \textbf{Agent} 实现\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索，支撑数千份文档实时问答，平均响应 1.5 秒。
-    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate，确保\textbf{稳定性}与\textbf{可扩展性}，掌握\textbf{异步任务队列}与\textbf{向量检索}等后端核心能力。
+    \item 基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署 \textbf{RAG} 系统，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 \textbf{Agent 异步工具调用} 提供了设计参考。
+    \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了\textbf{稳定性}和\textbf{可扩展性}。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
-    \item \textbf{编程与部署：} 熟练使用 \textbf{Go} 构建高并发 Agent 服务，\textbf{Python} 集成 LLM/RAG；熟练使用 \textbf{Docker Compose}、Git、SSH/Vim。
-    \item \textbf{浏览器自动化：} 精通 \textbf{Playwright}（页面交互、截图、网络拦截），已为 Agent 框架集成该工具集。
-    \item \textbf{Agent 核心能力：} 熟练使用 \textbf{Eino} / \textbf{LangChain} 开发 ReAct 风格 Agent，具备工具封装、异步调用、错误重试；掌握 RAG、多轮对话记忆。
+    \item \textbf{编程语言：} 熟练使用 \textbf{Go} 构建高并发 Agent 编排服务，能运用 \textbf{Python} 快速集成 LLM、RAG 及数据处理流程，具备 C++/Java 底层优化与跨语言协作经验。
+    \item \textbf{浏览器自动化：} 精通 \textbf{Playwright}（页面交互、截图、网络拦截），已为 Agent 框架集成该工具集，掌握动态等待、XPath/CSS 选择器、Cookie/Session 管理。
+    \item \textbf{Agent 核心能力：} 熟练使用 \textbf{Eino} / \textbf{LangChain} 开发 ReAct 风格 Agent，具备工具封装、异步调用、错误重试等实践；掌握 RAG、多轮对话记忆等关键技术。
+    \item \textbf{部署与工具：} 熟练使用 \textbf{Docker Compose} 一键部署 Agent 依赖中间件（PostgreSQL、Redis、Milvus），善于使用 Git、SSH/Vim 进行远程调试与配置编排。
 \end{itemize}
     
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与数学能力}
 \begin{itemize}[parsep=0.5ex]
-    \item \textbf{英语水平：} CET-4 616, CET-6 473（可阅读 Playwright/CDP 及 LLM 英文文档）\quad \textbf{获奖经历：} 全国大学生数学竞赛省一等奖（逻辑推理与规划能力）
+    \item \textbf{英语水平：} CET-4 616, CET-6 473（可流畅阅读 Playwright/CDP 及 LLM 相关英文文档）
+    \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖（逻辑推理与规划能力，对 Agent 任务分解设计有直接帮助）
 \end{itemize}
 \end{document}
