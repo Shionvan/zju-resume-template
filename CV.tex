@@ -15,7 +15,7 @@
 \usepackage{fontspec}
 \usepackage{xeCJK}
 \usepackage{enumitem}
-\CJKsetecglue{} %% 取消中文与数字之间的间隙
+\CJKsetecglue{}
 
 %% 主文档字体设置
 \setmainfont[
@@ -24,7 +24,6 @@
     BoldFont = texgyretermes-bold.otf,
 ]{texgyretermes-regular.otf}
 
-% 中文字体设置
 \setCJKmainfont[
     Path = fonts/hansans/,
     Extension = .ttf,
@@ -88,35 +87,32 @@
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
 
-% --- 项目1：多Agent协作浏览器自动化系统（新增，替代原项目）---
+% --- 项目1：多Agent协作浏览器自动化系统（精简为2个要点）---
 \textbf{多Agent协作浏览器自动化系统：基于LangGraph的层级架构设计与实现} \hfill 2026.02 -- 2026.04 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item 设计并实现了基于\textbf{LangGraph}的\textbf{层级多Agent协作系统}，由\textbf{Supervisor Agent}统一调度，三个\textbf{Worker Agent}（导航Agent、数据提取Agent、表单填充Agent）各司其职，通过共享状态协调完成浏览器自动化任务。采用官方多Agent协作教程推荐的架构模式。
-    \item 系统在50个真实网页任务上测试，\textbf{任务成功率91\%}，多Agent协作相比单Agent模式并行度提升3倍，平均完成时间减少32\%。该框架已开源，提供完整示例代码。
-    \item 深入实践了\textbf{多Agent协作设计模式}（Supervisor-Workers、Agent间Handoff与状态共享），为团队后续复杂工作流编排积累了可复用架构经验。
+    \item 设计并实现了基于\textbf{LangGraph}的\textbf{层级多Agent协作系统}，由\textbf{Supervisor Agent}统一调度，三个\textbf{Worker Agent}（导航、数据提取、表单填充）通过共享状态协调完成浏览器自动化任务。
+    \item 系统在50个真实网页任务上测试，\textbf{任务成功率91\%}，并行度提升3倍，平均完成时间减少32\%；深入实践了\textbf{Supervisor-Workers、Handoff与状态共享}等设计模式，积累可复用架构经验。
 \end{itemize}
 
 \projectsep
 
-% --- 项目2：Dify RAG 系统（增加评测与优化描述）---
+% --- 项目2：Dify RAG 系统---
 \textbf{基于 Dify 的 RAG 智能问答系统后端设计与部署} \hfill 2025.7 -- 2025.10 \titlebreak
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
     \item 基于 Dify 的 \textbf{Flask+Celery} 分离式架构设计并部署 \textbf{RAG} 系统，利用 \textbf{Agent} 与 \textbf{RAG} 模块实现了\textbf{多轮对话记忆}、\textbf{文档溯源}及动态检索策略。系统支撑数千份文档的实时问答，平均响应 1.5 秒，为后续 \textbf{Agent 异步工具调用} 提供了设计参考。
     \item 通过 \textbf{Docker Compose} 一键部署 PostgreSQL、Redis、Weaviate 等中间件，将系统完整落地生产环境，确保了\textbf{稳定性}和\textbf{可扩展性}。
-    \item \textbf{模型优化与评测：} 使用开源框架 \textbf{Ragas} 和 \textbf{LangSmith} 构建 200+ 问答对测试集，以答案忠实度、上下文相关性为核心指标。通过 \textbf{Few-shot} 和 \textbf{CoT} 优化 Prompt，将任务成功率从 72\% 提升至 89\%，并开源评测脚本（GitHub 仓库）。
+    \item \textbf{模型优化与评测：} 使用开源框架 \textbf{Ragas} 和 \textbf{LangSmith} 构建 200+ 问答对测试集，以答案忠实度、上下文相关性为核心指标。通过 \textbf{Few-shot} 和 \textbf{CoT} 优化 Prompt，将任务成功率从 72\% 提升至 89\%。
 \end{itemize}
 
 \section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
 \begin{itemize}[nosep]
     \item \textbf{编程与部署：} 熟练使用 \textbf{Go} 构建高并发 Agent 服务，\textbf{Python} 集成 LLM/RAG；熟练使用 \textbf{Docker Compose}、Git、SSH/Vim。
-    \item \textbf{多Agent协作：} 熟练使用 \textbf{LangGraph} 设计 Supervisor-Workers、Handoff、状态共享等层级多Agent架构；理解多Agent协作模式与任务编排。
     \item \textbf{浏览器自动化：} 精通 \textbf{Playwright}（页面交互、截图、网络拦截），已为 Agent 框架集成该工具集。
-    \item \textbf{Agent 核心能力：} 熟练使用 \textbf{Eino} / \textbf{LangChain} 开发 ReAct 风格 Agent，具备工具封装、异步调用、错误重试；掌握 RAG、多轮对话记忆、Agent 评测（Ragas/LangSmith）与 Prompt 优化。
+    \item \textbf{多Agent与核心能力：} 熟练使用 \textbf{LangGraph} 设计多Agent协作架构（Supervisor-Workers、Handoff、状态共享），掌握 \textbf{Eino/LangChain} 开发 ReAct 风格 Agent，具备工具封装、RAG、多轮对话记忆、Agent评测（Ragas/LangSmith）与 Prompt 优化。
 \end{itemize}
     
 \section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 外语与数学能力}
 \begin{itemize}[parsep=0.5ex]
-    \item \textbf{英语水平：} CET-4 616, CET-6 473
-    \item \textbf{获奖经历：} 全国大学生数学竞赛省一等奖
+    \item \textbf{英语水平：} CET-4 616, CET-6 473 \quad \textbf{获奖经历：} 全国大学生数学竞赛省一等奖
 \end{itemize}
 \end{document}
